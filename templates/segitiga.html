@@ -81,16 +81,17 @@
          * @returns {void} Tidak mengembalikan nilai
          */
         function hitungLuas() {
-            const alas = parseFloat(document.getElementById('alas').value);
-            const tinggi = parseFloat(document.getElementById('tinggi').value);
+            const alas = parseFloat(document.getElementById('alas').value); // Mengambil nilai alas
+            const tinggi = parseFloat(document.getElementById('tinggi').value); // Mengambil nilai tinggi
 
+            // Validasi input harus berupa angka, jika tidak maka tampilkan pesan
             if (isNaN(alas) || isNaN(tinggi)) {
                 document.getElementById('hasil').textContent = 'Mohon masukkan angka yang valid.';
                 return;
             }
 
-            const luas = 0.5 * alas * tinggi;
-            document.getElementById('hasil').textContent = `Luas segitiga: ${luas.toFixed(0)}`;
+            const luas = 0.5 * alas * tinggi; // Menghitung luas segitiga
+            document.getElementById('hasil').textContent = `Luas segitiga: ${luas.toFixed(0)}`; // Menampilkan hasil
         }
     </script>
 </body>

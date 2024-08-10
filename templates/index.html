@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-                body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
         }
@@ -131,15 +131,18 @@
         </form>
     </div>
     <script>
+        // Fungsi untuk mengecek apakah semua data sudah diisi
         function checkForm() {
-            const nik = document.getElementById('nik').value;
-            const nama = document.getElementById('nama').value;
-            const tempatLahir = document.getElementById('tempat-lahir').value;
-            const tanggalLahir = document.getElementById('tanggal-lahir').value;
-            const jenisKelamin = document.getElementById('jenis-kelamin').value;
-            const alamat = document.getElementById('alamat').value;
-            const agama = document.getElementById('agama').value;
+            const nik = document.getElementById('nik').value; // Mengambil nilai nik
+            const nama = document.getElementById('nama').value; // Mengambil nilai nama
+            const tempatLahir = document.getElementById('tempat-lahir').value; // Mengambil nilai tempat lahir
+            const tanggalLahir = document.getElementById('tanggal-lahir').value; // Mengambil nilai tanggal lahir
+            const jenisKelamin = document.getElementById('jenis-kelamin').value; // Mengambil nilai jenis kelamin
+            const alamat = document.getElementById('alamat').value; // Mengambil nilai alamat
+            const agama = document.getElementById('agama').value; // Mengambil nilai agama
 
+
+            // Cek apakah semua data sudah diisi
             if (nik === '' || nama === '' || tempatLahir === '' || tanggalLahir === '' || jenisKelamin === '' || alamat === '' || agama === '') {
                 alert('Semua data harus diisi');
                 return false;
@@ -148,18 +151,22 @@
             return true;
         }
 
+        // Menambahkan event listener untuk form submit
         document.querySelector('form').addEventListener('submit', function (event) {
             if (!checkForm()) {
-                event.preventDefault();
-                alert('Data gagal dikirim');
+                event.preventDefault(); // Mencegah form untuk melakukan submit
+                alert('Data gagal dikirim'); // Tampilkan pesan gagal
             } else {
-                alert('Data berhasil dikirim');
+                alert('Data berhasil dikirim'); // Tampilkan pesan berhasil
             }
+
         });
 
+        // Menambahkan event listener untuk tombol reset
         document.querySelector('button[type="reset"]').addEventListener('click', function () {
+            // Konfirmasi apakah akan menghapus data yang telah diinput
             if (!confirm('Apakah Anda yakin akan menghapus data yang telah diinput?')) {
-                event.preventDefault();
+                event.preventDefault(); // Mencegah form untuk melakukan reset
             }
         });
 

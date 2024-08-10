@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_STUDENTS 100
+#define MAX_MAHASISWA 100
 #define MAX_STRING 100
 
 typedef struct {
@@ -13,7 +13,7 @@ typedef struct {
     char prodi[MAX_STRING];
 } Mahasiswa;
 
-Mahasiswa mahasiswa[MAX_STUDENTS];
+Mahasiswa mahasiswa[MAX_MAHASISWA];
 int jumlah_mahasiswa = 0;
 
 /**
@@ -29,14 +29,14 @@ int jumlah_mahasiswa = 0;
  * @return void
  */
 void tambah_mahasiswa() {
-    if (jumlah_mahasiswa < MAX_STUDENTS) {
+    if (jumlah_mahasiswa < MAX_MAHASISWA) {
         Mahasiswa m;
         printf("NPM: ");
         scanf("%s", m.npm);
         printf("Nama: ");
-        scanf(" %[^\n]", m.nama);
+        scanf("%s", m.nama);
         printf("Tempat Lahir: ");
-        scanf(" %[^\n]", m.tempat_lahir);
+        scanf("%s", m.tempat_lahir);
         printf("Tanggal Lahir (DD/MM/YYYY): ");
         scanf("%s", m.tanggal_lahir);
         printf("Prodi: ");
@@ -67,9 +67,9 @@ void edit_mahasiswa() {
     for (int i = 0; i < jumlah_mahasiswa; i++) {
         if (strcmp(mahasiswa[i].npm, npm) == 0) {
             printf("Nama baru: ");
-            scanf(" %[^\n]", mahasiswa[i].nama);
+            scanf("%s", mahasiswa[i].nama);
             printf("Tempat Lahir baru: ");
-            scanf(" %[^\n]", mahasiswa[i].tempat_lahir);
+            scanf("%s", mahasiswa[i].tempat_lahir);
             printf("Tanggal Lahir baru (DD/MM/YYYY): ");
             scanf("%s", mahasiswa[i].tanggal_lahir);
             printf("Prodi baru: ");
@@ -90,6 +90,8 @@ void tampilkan_mahasiswa() {
         printf("Tidak ada data mahasiswa.\n");
         return;
     }
+
+    printf("--------------------\n");
 
     for (int i = 0; i < jumlah_mahasiswa; i++) {
         printf("NPM: %s\n", mahasiswa[i].npm);
