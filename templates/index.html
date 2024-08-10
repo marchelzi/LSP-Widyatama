@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .card {
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group label {
+            flex: 0 0 120px;
+            font-weight: bold;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .form-group input,
+        .form-group select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group select {
+            height: 40px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-left: 130px;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button-group button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .button-group button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .button-group button[type="reset"] {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .button-group button[type="reset"]:hover {
+            background-color: #d32f2f;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Input Biodata</h2>
+        <form>
+            <div class="form-group">
+                <label for="nik">NIK:</label>
+                <input type="text" id="nik" name="nik" required>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="tempat-lahir">Tempat Lahir:</label>
+                <input type="text" id="tempat-lahir" name="tempat-lahir" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggal-lahir">Tanggal Lahir:</label>
+                <input type="date" id="tanggal-lahir" name="tanggal-lahir" required>
+            </div>
+            <div class="form-group">
+                <label for="jenis-kelamin">Jenis Kelamin:</label>
+                <input type="text" id="jenis-kelamin" name="jenis-kelamin" required>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat" name="alamat" required>
+            </div>
+            <div class="form-group">
+                <label for="agama">Agama:</label>
+                <select id="agama" name="agama" required>
+                    <option value="">-- Pilih Agama --</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Katolik">Katolik</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Buddha">Buddha</option>
+                    <option value="Konghucu">Konghucu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="button-group">
+                    <button type="submit">Send</button>
+                    <button type="reset">Cancel </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <script>
+        function checkForm() {
+            const nik = document.getElementById('nik').value;
+            const nama = document.getElementById('nama').value;
+            const tempatLahir = document.getElementById('tempat-lahir').value;
+            const tanggalLahir = document.getElementById('tanggal-lahir').value;
+            const jenisKelamin = document.getElementById('jenis-kelamin').value;
+            const alamat = document.getElementById('alamat').value;
+            const agama = document.getElementById('agama').value;
+
+            if (nik === '' || nama === '' || tempatLahir === '' || tanggalLahir === '' || jenisKelamin === '' || alamat === '' || agama === '') {
+                alert('Semua data harus diisi');
+                return false;
+            }
+
+            return true;
+        }
+
+        document.querySelector('form').addEventListener('submit', function (event) {
+            if (!checkForm()) {
+                event.preventDefault();
+                alert('Data gagal dikirim');
+            } else {
+                alert('Data berhasil dikirim');
+            }
+        });
+
+        document.querySelector('button[type="reset"]').addEventListener('click', function () {
+            if (!confirm('Apakah Anda yakin akan menghapus data yang telah diinput?')) {
+                event.preventDefault();
+            }
+        });
+
+    </script>
+</body>
+</html>
