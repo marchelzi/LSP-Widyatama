@@ -6,7 +6,7 @@
 #define MAX_STRING 100
 
 typedef struct {
-    char npm[20];
+    char npm[10];
     char nama[MAX_STRING];
     char tempat_lahir[MAX_STRING];
     char tanggal_lahir[11];
@@ -60,7 +60,7 @@ void tambah_mahasiswa() {
  * Jika tidak ada mahasiswa dengan NPM yang diberikan, ditampilkan pesan error.
  */
 void edit_mahasiswa() {
-    char npm[20];
+    char npm[10];
     printf("Masukkan NPM mahasiswa yang akan diedit: ");
     scanf("%s", npm);
 
@@ -113,7 +113,7 @@ void tampilkan_mahasiswa() {
  * Jika tidak ada mahasiswa dengan NPM yang diberikan, ditampilkan pesan error.
  */
 void hapus_mahasiswa() {
-    char npm[20];
+    char npm[10];
     printf("Masukkan NPM mahasiswa yang akan dihapus: ");
     scanf("%s", npm);
 
